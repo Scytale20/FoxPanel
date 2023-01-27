@@ -10,8 +10,9 @@
 
   
 
-  <label for="cliente" class="my-3">Para iniciar, ingresá el nombre del Cliente:</label>
-  <input type="text" id="cliente" placeholder="Nombre del Cliente" class="form-control">
-
-  <div class="my-5"><button class="btn btn-secondary">Presupuestar</button></div>
+  <form (ngSubmit)="onSubmit(cliente)" #cliente="ngForm">
+    <label for="cliente" class="my-3">Para iniciar, ingresá el nombre del Cliente:</label>
+    <input type="text" id="cliente" placeholder="Nombre del Cliente" class="form-control" name="nombreCliente" ngModel>
+    <div class="my-5"><button class="btn btn-secondary" type="submit" routerLink="">Presupuestar</button></div>
+  </form>
 </div>

@@ -3,9 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 30rem;
-
-    
+    width: 30rem;    
 }
 .logo-img{
     background-color: #bf360c;         
