@@ -88,5 +88,12 @@
     </form>
   </div>
 
-  <div class="container vistaDatos mb-5 border rounded">Vista de datos!</div>
+  <div class="container vistaDatos mb-5 border rounded">
+    <div *ngFor="let presupuesto of presupuestos">
+
+      <h1>{{presupuesto.muro}}</h1>
+  
+    </div>
+  </div>
+  
 </main>

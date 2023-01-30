@@ -1,0 +1,14 @@
+{
+  "presupuesto":[
+      {
+          "id": 1,
+          "cliente":"Nestur",
+          "muro":"Muro 1",
+          "tipoPanel":"PMO 90",
+          "metrosLineales":"1.30",
+          "pxPanel":"500",
+          "pxMO":"700"
+
+      }
+  ]
+}

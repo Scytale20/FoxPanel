@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CalculadorService } from 'src/app/service/calculador.service';
+import { Presupuesto } from '../../../assets/presupuesto'
 
 @Component({
   selector: 'app-calculador',
@@ -9,8 +11,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class CalculadorComponent implements OnInit {
 
   calculadorForm:FormGroup;
+  presupuestos: Presupuesto[] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private calculadorService: CalculadorService) {
     this.calculadorForm = this.formBuilder.group(
       {
         muro: ['', Validators.required],
@@ -25,6 +28,12 @@ export class CalculadorComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+    this.calculadorService.getPresupuestos().subscribe(data => {
+      this.presupuestos = data
+    })
+
+
     // this.calculadorForm = new FormGroup({
     //   muro: new FormControl(null, Validators.required),
     //   tipoPanel: new FormControl(null, Validators.required),
