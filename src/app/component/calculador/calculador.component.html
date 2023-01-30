@@ -1,59 +1,92 @@
 <main>
-    <div class="container inputs mb-5 border rounded">
-        <form [formGroup]="calculadorForm" (ngSubmit)="onSubmit()">
-            <label for="muro" class=""></label>
-            <input
-              type="text"
-              id="muro"
-              placeholder="Muro"
-              class="form-control mx-3"
-              formControlName="muro"
-            />
+  <div class="container inputs mb-5 border rounded">
+    <form [formGroup]="calculadorForm" (ngSubmit)="onSubmit()">
+      <label for="muro" class=""></label>
+      <input
+        type="text"
+        id="muro"
+        placeholder="Muro"
+        class="form-control mx-3"
+        formControlName="muro"
+        [ngClass]="{
+          'is-invalid': muro?.errors && muro?.touched,
+          'is-valid': !muro?.errors && muro?.touched
+        }"
+      />
 
-            <select class="form-select mx-3" id="tipoPanel" formControlName="tipoPanel">
-                <option selected>Selecione Panel</option>
-                <option value="PMO90">PMO 90</option>
-                <option value="PMO110">PMO 110</option>
-                <option value="PMFT55">PMFT 55</option>
-                <option value="PMF90">PMF 90</option>
-                <option value="PMFT115">PMFT 115</option>
-                <option value="SMARTPANEL90">SMART PANEL 90</option>
-                <option value="SMARTPANEL110">SMART PANEL 110</option>
-              </select>
+      <select
+        class="form-select mx-3"
+        id="tipoPanel"
+        formControlName="tipoPanel"
+        [ngClass]="{
+          'is-invalid': tipoPanel?.errors && tipoPanel?.touched,
+          'is-valid': !tipoPanel?.errors && tipoPanel?.touched
+        }"
+      >
+        <option disabled>Selecione Panel</option>
+        <option value="PMO90">PMO 90</option>
+        <option value="PMO110">PMO 110</option>
+        <option value="PMFT55">PMFT 55</option>
+        <option value="PMF90">PMF 90</option>
+        <option value="PMFT115">PMFT 115</option>
+        <option value="SMARTPANEL90">SMART PANEL 90</option>
+        <option value="SMARTPANEL110">SMART PANEL 110</option>
+      </select>
 
-            <label for="metros" class=""></label>
-            <input
-              type="number"
-              id="metros"
-              placeholder="Metros"
-              class="form-control mx-3"
-              formControlName="metrosLineales"
-            />
-            <label for="pxPanel" class=""></label>
-            <input
-              type="number"
-              id="pxPanel"
-              placeholder="Precio Un."
-              class="form-control mx-3"
-              formControlName="pxPanel"
-            />
-            <label for="pxMO" class=""></label>
-            <input
-              type="number"
-              id="pxMO"
-              placeholder="Precio M.Obra"
-              class="form-control mx-3"
-              formControlName="pxMO"
-            />
-            <div class="">
-              <button class="btn btn-secondary mx-5" type="submit" routerLink="">
-                Calcular
-              </button>
-            </div>
-        </form>
-    </div>
+      <label for="metros" class=""></label>
+      <input
+        type="number"
+        id="metros"
+        placeholder="Metros"
+        class="form-control mx-3"
+        formControlName="metrosLineales"
+        [ngClass]="{
+          'is-invalid': metrosLineales?.errors && metrosLineales?.touched,
+          'is-valid': !metrosLineales?.errors && metrosLineales?.touched
+        }"
+      />
+      <div class="input-group mx-3">
+        <label for="pxPanel" class=""></label>
+        <span class="input-group-text">$</span>
+        <input
+          type="number"
+          id="pxPanel"
+          placeholder="Precio Un."
+          class="form-control"
+          formControlName="pxPanel"
+          [ngClass]="{
+            'is-invalid': pxPanel?.errors && pxPanel?.touched,
+            'is-valid': !pxPanel?.errors && pxPanel?.touched
+          }"
+        />
+      </div>
+      <div class="input-group mx-3">
+        <label for="pxMO" class=""></label>
+        <span class="input-group-text">$</span>
+        <input
+          type="number"
+          id="pxMO"
+          placeholder="Precio M.O."
+          class="form-control"
+          formControlName="pxMO"
+          [ngClass]="{
+            'is-invalid': pxMO?.errors && pxMO?.touched,
+            'is-valid': !pxMO?.errors && pxMO?.touched
+          }"
+        />
+      </div>    
+      <div class="">
+        <button
+          class="btn btn-secondary mx-5"
+          type="submit"
+          [disabled]="calculadorForm.invalid"
+          routerLink=""
+        >
+          Calcular
+        </button>
+      </div>
+    </form>
+  </div>
 
-    <div class="container vistaDatos mb-5 border rounded">
-        Vista de datos!
-    </div>
+  <div class="container vistaDatos mb-5 border rounded">Vista de datos!</div>
 </main>
